@@ -1,30 +1,28 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
-interface IParamsId {
-  params: {
-    id: string;
-  };
-}
 
-export const PUT = async (req: Request, { params }: IParamsId) => {
+export const PUT = async (req: Request) => {
   try {
-    const { id } = params;
-    const updatedTodo = await req.json();
+    const url = new URL(req.url);
+    const id = url.pathname.split("/").pop();
+
     if (!id) {
-      return NextResponse.json({ message: "Id is required" }, { status: 404 });
+      return NextResponse.json({ message: "Id is required" }, { status: 400 });
     }
+    const updatedTodo = await req.json();
     const data = await prisma.todo.update({
       where: {
         id: Number(id),
       },
       data: updatedTodo,
     });
+
     return NextResponse.json(data, { status: 200 });
   } catch (error) {
-    console.log(error);
+    console.error("Error updating todo:", error);
     return NextResponse.json(
       { message: "Internal server error" },
-      { status: 405 }
+      { status: 500 }
     );
   }
 };
