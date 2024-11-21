@@ -1,10 +1,10 @@
-interface postTodo {
+interface PostTodo {
   title: string;
   image: string;
   chaked: boolean;
 }
 
-interface getTodo {
+interface GetTodo {
   id: number;
   title: string;
   image: string;
@@ -12,8 +12,8 @@ interface getTodo {
   createdAt: Date;
   updatedAt: Date;
 }
-interface edit {
-  id: number | null;
+interface Edit {
+  id: number | undefined;
   title: string;
   image: string;
   chaked: boolean;
