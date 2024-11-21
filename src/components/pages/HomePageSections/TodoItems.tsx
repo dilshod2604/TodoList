@@ -58,7 +58,7 @@ const TodoItems = () => {
                   className="w-full h-auto rounded-md bg-slate-100 px-4 py-3 flex items-center justify-between"
                 >
                   {listId === todo.id && isEdit ? (
-                    <div className="flex items-center gap-x-2 max:sm:flex-col max:sm:gap-y-1">
+                    <div className="flex items-center gap-x-2 max-sm:flex-col max-sm:gap-y-2 max-sm:items-start">
                       <input
                         type="text"
                         value={value}

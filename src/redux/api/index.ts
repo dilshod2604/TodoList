@@ -5,7 +5,7 @@ import {
   } from "@reduxjs/toolkit/query/react";
   
   const BaseQuery = fetchBaseQuery({
-    baseUrl: "https://todo-list-one-murex-30.vercel.app/",
+    baseUrl: "http://localhost:3000/",
   });
   
   const baseQueryExtends: BaseQueryFn = async (arg, api, extraOptions) => {
