@@ -52,7 +52,7 @@ const TodoInput = () => {
             {...register("image", { required: true })}
             className=" w-full h-[40px] bg-neutral-100 rounded-md placeholder:text-neutral-600 px-4 focus:outline-blue-500 "
           />
-          <div className="w-full flex items-center justify-end gap-x-4">
+          <div className="w-full flex items-center justify-end gap-x-4 max-sm:flex-col gap-y-3">
             <button
               className="text-white font-bold flex items-center justify-center px-[50px] py-3 bg-orange-700 - rounded-xl hover:bg-orange-800"
               onClick={close}
